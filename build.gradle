@@ -1,0 +1,52 @@
+plugins {
+  id 'java'
+  id 'org.springframework.boot' version '3.5.5'
+  id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.kiylab'
+version = '0.0.1-SNAPSHOT'
+description = 'crol'
+
+java {
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(21)
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  // ✅ Spring Boot 기본
+  implementation 'org.springframework.boot:spring-boot-starter'
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+  implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+  // ✅ DB (MariaDB)
+  runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+
+  // ✅ Selenium (크롤링)
+  implementation 'org.seleniumhq.selenium:selenium-java:4.22.0'
+  implementation 'org.seleniumhq.selenium:selenium-chrome-driver:4.22.0'
+
+  // ✅ WebDriverManager (크롬 드라이버 자동 관리)
+  implementation 'io.github.bonigarcia:webdrivermanager:5.9.2'
+
+  // ✅ Lombok (코드 줄여줌)
+  compileOnly 'org.projectlombok:lombok'
+  annotationProcessor 'org.projectlombok:lombok'
+  testCompileOnly 'org.projectlombok:lombok'
+  testAnnotationProcessor 'org.projectlombok:lombok'
+
+
+
+  // ✅ Test
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+  useJUnitPlatform()
+}
