@@ -16,9 +16,14 @@ java {
 
 repositories {
   mavenCentral()
+//  maven { url 'https://jitpack.io' }
 }
 
 dependencies {
+//  // webp 변환
+//  implementation 'com.github.luciad:webp-imageio:0.2.1'
+
+
   // ✅ Spring Boot 기본
   implementation 'org.springframework.boot:spring-boot-starter'
   implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -39,6 +44,10 @@ dependencies {
   annotationProcessor 'org.projectlombok:lombok'
   testCompileOnly 'org.projectlombok:lombok'
   testAnnotationProcessor 'org.projectlombok:lombok'
+
+  // 썸네일
+  implementation 'net.coobird:thumbnailator:0.4.20' // ✅ 최신 버전
+
 
 
 
